@@ -24,10 +24,20 @@ services:
     depends_on:
       - zookeeper
 
+  conduktor:
+    image: 'conduktor/conduktor-platform:latest'
+    ports:
+      - 8080:8080
+    volumes:
+      - 'conduktor_data:/var/conduktor'
+
 volumes:
   zookeeper_data:
     driver: local
     external: false
   kafka_data:
+    driver: local
+    external: false
+  conduktor_data:
     driver: local
     external: false
