@@ -1,14 +1,16 @@
 <Query Kind="Program">
   <NuGetReference>Confluent.Kafka</NuGetReference>
   <Namespace>Confluent.Kafka</Namespace>
+  <Namespace>System.Threading.Tasks</Namespace>
 </Query>
 
-void Main()
+async Task Main()
 {
-    // Kafka server configuration
+    var connection = "http://127.0.0.1:9092";
+	// Kafka server configuration
     var config = new ProducerConfig
     {
-        BootstrapServers = "localhost:9092", // Replace with your Kafka server address
+        BootstrapServers = connection, // Replace with your Kafka server address
         ClientId = "LINQPadProducer"
     };
 
@@ -19,14 +21,14 @@ void Main()
     {
         // Publish a message to the topic
         var message = new Message<Null, string> { Value = "Hello, Kafka!" };
-        producer.ProduceAsync(topic, message).Wait();
+        var result = await producer.ProduceAsync(topic, message);
         producer.Flush(TimeSpan.FromSeconds(10));
     }
 
     // Read the message from another service
     var consumerConfig = new ConsumerConfig
     {
-        BootstrapServers = "localhost:9092", // Replace with your Kafka server address
+        BootstrapServers = connection, // Replace with your Kafka server address
         GroupId = "LINQPadConsumer",
         AutoOffsetReset = AutoOffsetReset.Earliest
     };
