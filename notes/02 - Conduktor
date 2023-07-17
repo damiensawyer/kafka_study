@@ -1,0 +1,6 @@
+# Conduktor
+Web client for connecting.
+
+Note, when setting up, you enter kafka:9092 as the network address of the Kafka bootstrap server in Docker.
+
+
