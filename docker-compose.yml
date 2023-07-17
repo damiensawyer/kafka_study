@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   zookeeper:
-    image: 'bitnami/zookeeper:latest'
+    image: 'bitnami/zookeeper:latest' # starting from version 2.8, Kafka no longer requires ZooKeeper and has introduced its own internal coordination protocol called the Kafka Raft Metadata mode.
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
     ports:
