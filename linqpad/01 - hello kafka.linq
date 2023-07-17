@@ -6,7 +6,7 @@
 
 async Task Main()
 {
-    var connection = "http://127.0.0.1:9092";
+    var connection = "localhost:9092";
 	// Kafka server configuration
     var config = new ProducerConfig
     {
@@ -35,7 +35,7 @@ async Task Main()
 
     using (var consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build())
     {
-        consumer.Subscribe(topic);AcceptRejectRule:
+        consumer.Subscribe(topic);
 
         while (true)
         {
