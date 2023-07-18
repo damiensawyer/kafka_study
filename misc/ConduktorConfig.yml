@@ -1,0 +1,5 @@
+organization:
+  name: kafka-study
+admin:
+  email: kafka-study@mailinator.com
+  password: mypassword

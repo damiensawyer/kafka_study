@@ -26,7 +26,7 @@ async Task Main()
         await retryPolicy.ExecuteAsync(async () => await ConsumeMessages(topic, connection));
 
     });
-
+w
     // Wait for all tasks to complete
     await Task.WhenAll(producerTasks.Concat(new[] { consumerTask }));
 
