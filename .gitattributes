@@ -1,0 +1,2 @@
+# Git solution is set to eol=auto, which means that Git will handle the line endings for you automatically. However, ignore for .sh files because they're usually running in cygwin / linux. 
+*.sh text eol=lf
