@@ -79,6 +79,7 @@ async Task Main()
 				}
 				else
 				{
+					Console.WriteLine("Consumer ending because no data received within timeout");
 					// Exit the loop if no message is received within the specified timeout
 					break;
 				}
